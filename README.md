@@ -1,8 +1,9 @@
-## Welcome to Jobsrails Application
+## Welcome to Jobsrails Application 
+### Some of the tools and Gems here: 
 
-### Some of the tools and Gems here:
 + Bourbon
 + Neat
 + HAML
-+ Simple_form
++ Simple form
 + Font Awesome
++ Friendly ID

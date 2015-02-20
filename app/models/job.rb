@@ -6,8 +6,9 @@ class Job < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :history]
 
   # validation
-  validates_presence_of :title, :company, :url
+  validates_presence_of :title, :company
   validates_uniqueness_of :url
+  validates_presence_of :url, url: true
 
   def should_generate_new_friendly_id?
     title_changed?
