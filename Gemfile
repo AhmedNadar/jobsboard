@@ -24,6 +24,7 @@ gem 'neat', '~> 1.7.0'
 gem 'bitters'
 gem 'refills'
 gem 'simple_form'
+gem 'devise'
 
 group :development do
   gem 'spring-commands-rspec'

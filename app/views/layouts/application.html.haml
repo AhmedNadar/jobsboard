@@ -10,29 +10,14 @@
     = csrf_meta_tags
     = csrf_meta_tag
   %body.index{"cz-shortcut-listen" => "true"}
+    = render 'layouts/header'
 
-  %header.centered-navigation{:role => "banner"}
-    .centered-navigation-wrapper
-      %a.mobile-logo{:href => "javascript:void(0)"}
-        %img{:alt => "Logo image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png"}/
-      %a#js-centered-navigation-mobile-menu.centered-navigation-mobile-menu{:href => root_path} MENU
-      %nav{:role => "navigation"}
-        %ul#js-centered-navigation-menu.centered-navigation-menu.show
-          %li.nav-link
-            %a{:href => jobs_path} Jobs
-          %li.nav-link
-            %a{:href => new_job_path} New Job
-          %li.nav-link
-            %a{:href => "javascript:void(0)"} Contact
-          %li.nav-link.logo
-            %a.logo{:href => root_path}
-              %img{:alt => "Logo image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png"}/
-          %li.nav-link
-            %a{:href => "javascript:void(0)"} Testimonials
-          %li.nav-link
-            %a{:href => "javascript:void(0)"} Sign up
+    %secion.container
+      %secion.inner_content
+        .refills-wrapper
+          %p.notice
+            = notice
+          %p.alert
+            = alert
 
-  %secion.container
-    %secion.inner_content
-      .refills-wrapper
-        = yield
+          = yield

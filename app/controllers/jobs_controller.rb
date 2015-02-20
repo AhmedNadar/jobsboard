@@ -1,10 +1,12 @@
 class JobsController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_job_redirect , only: [:show]
 
   def index
     @jobs = Job.paginate(page: params[:page], per_page: 2)
-     @title = Job.all
+    @title = current_user.jobs
   end
 
   def show
@@ -18,7 +20,8 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(job_params)
+    @user = current_user
+    @job = @user.jobs.build(job_params)
     if @job.save
       redirect_to @job, notice: "Jobs was successfully posted!"
     else
@@ -42,7 +45,8 @@ class JobsController < ApplicationController
   private
     def set_job_redirect
       # Use callbacks to share common setup or constraints between actions.
-      @job = Job.friendly.find(params[:id])
+      @user = current_user
+      @job = @user.jobs.friendly.find(params[:id])
 
       # If an old id or a numeric id was used to find the record, then
       # the request path will not match the job_path, and we should do
@@ -53,10 +57,11 @@ class JobsController < ApplicationController
     end
 
     def set_job
-      @job = Job.friendly.find(params[:id])
+      @user = current_user
+      @job = @user.jobs.friendly.find(params[:id])
     end
 
     def job_params
-      params.require(:job).permit(:title, :slug, :description, :company, :url)
+      params.require(:job).permit(:title, :slug, :description, :company, :url, :user_id)
     end
 end
