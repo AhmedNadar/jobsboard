@@ -1,0 +1,18 @@
+%h2 Job Details
+
+%p#notice= notice
+%p
+  %strong Title:
+  = @job.title
+%p
+  %strong Compnay:
+  = @job.company
+%p
+  %strong Details:
+  = @job.description
+%p
+  %strong URL:
+  = @job.url
+
+= link_to 'Edit', edit_job_path(@job)
+= link_to 'Back', jobs_path

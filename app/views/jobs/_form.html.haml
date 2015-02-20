@@ -1,0 +1,16 @@
+= form_for(@job) do |f|
+  - if @job.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@job.errors.count, "error")
+        prohibited this job from being saved:
+      %ul
+        - @job.errors.full_messages.each do |message|
+          %li= message
+
+= simple_form_for @job do |form|
+  = form.input :title, label: "Job title"
+  = form.input :company, label: "Where"
+  = form.input :description, label: "Job Details"
+  = form.input :url, label: "Link"
+  = form.button :submit

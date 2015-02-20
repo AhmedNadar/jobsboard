@@ -1,0 +1,26 @@
+= will_paginate @jobs
+
+%h1 All Jobs
+.stats
+  %ul
+    %li
+      = @jobs.count
+      %span Jobs
+%br/
+%hr/
+- @jobs.each do |job|
+  .refill-centering
+    .cards
+      = link_to job do
+        .card
+          .card-image
+            %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
+          .card-header
+            = job.title
+          .card-copy
+            %p= job.description
+          %p
+            = link_to 'Show', job
+            | #{link_to 'Edit', edit_job_path(job)}
+            | #{link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }}
+

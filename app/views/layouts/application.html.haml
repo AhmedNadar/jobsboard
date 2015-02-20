@@ -1,9 +1,38 @@
 !!!
 %html
   %head
-    %title Jobsrails Application
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
+    %link{:href => "//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200", :rel => "stylesheet", :type => "text/css"}/
+
+    %title Toronot Jobs Rails - #{yield(:title) || "Developer's Home"}
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
     = csrf_meta_tag
-  %body
-    = yield
+  %body.index{"cz-shortcut-listen" => "true"}
+
+  %header.centered-navigation{:role => "banner"}
+    .centered-navigation-wrapper
+      %a.mobile-logo{:href => "javascript:void(0)"}
+        %img{:alt => "Logo image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png"}/
+      %a#js-centered-navigation-mobile-menu.centered-navigation-mobile-menu{:href => root_path} MENU
+      %nav{:role => "navigation"}
+        %ul#js-centered-navigation-menu.centered-navigation-menu.show
+          %li.nav-link
+            %a{:href => jobs_path} Jobs
+          %li.nav-link
+            %a{:href => new_job_path} New Job
+          %li.nav-link
+            %a{:href => "javascript:void(0)"} Contact
+          %li.nav-link.logo
+            %a.logo{:href => root_path}
+              %img{:alt => "Logo image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png"}/
+          %li.nav-link
+            %a{:href => "javascript:void(0)"} Testimonials
+          %li.nav-link
+            %a{:href => "javascript:void(0)"} Sign up
+
+  %secion.container
+    %secion.inner_content
+      .refills-wrapper
+        = yield
