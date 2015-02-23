@@ -1,16 +1,15 @@
 ## Welcome to Jobsrails Application
 
-Initial App generation was done using my custom [Rails Template](https://gist.github.com/AhmedNadar/122e559a386af55bf5ba)
+Initial App generation was done using my custom :cherries: [Rails Template](https://gist.github.com/AhmedNadar/122e559a386af55bf5ba)
 
-### Some of the tools and Gems here:
+### Built with
 
-* Postgresql
-* [Bourbon](https://github.com/thoughtbot/bourbon)
-* [Neat](https://github.com/thoughtbot/neat)
-* [HAML Rails](https://github.com/indirect/haml-rails)
-* [Simple Form](https://github.com/plataformatec/simple_form)
-* [Figaro](https://github.com/laserlemon/figaro)
-* [Awesome Fonts](https://github.com/FortAwesome/font-awesome-sass)
-* [Friendly ID](https://github.com/norman/friendly_id)
-* [Devise](https://github.com/plataformatec/devise)
-* [Will Paginate](https://github.com/mislav/will_paginate)
+* :beer: [Bourbon](https://github.com/thoughtbot/bourbon)
+* :necktie: [Neat](https://github.com/thoughtbot/neat)
+* :gem: [HAML Rails](https://github.com/indirect/haml-rails)
+* :memo: [Simple Form](https://github.com/plataformatec/simple_form)
+* :smiley_cat: [Figaro](https://github.com/laserlemon/figaro)
+* :flags: [Awesome Fonts](https://github.com/FortAwesome/font-awesome-sass)
+* :anchor: [Friendly ID](https://github.com/norman/friendly_id)
+* :bar_chart: [Devise](https://github.com/plataformatec/devise)
+*  :abcd: [Will Paginate](https://github.com/mislav/will_paginate)
