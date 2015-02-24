@@ -9,15 +9,15 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
     = csrf_meta_tag
+    = render 'layouts/shim'
   %body.index{"cz-shortcut-listen" => "true"}
     = render 'layouts/header'
-
     %secion.container
-      %secion.inner_content
-        .refills-wrapper
-          %p.notice
-            = notice
-          %p.alert
-            = alert
-
-          = yield
+      .main-wrapper
+        = flash_messages if show_layout_flash?
+        %secion.intro
+          %h1 Welcome to Jobboards
+          %span.notice= notice
+          %span.alert= alert
+        = yield
+        = render 'layouts/footer'

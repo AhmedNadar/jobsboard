@@ -1,8 +1,12 @@
-    @import "normalize-rails";
-    @import "bourbon";
-    @import "base/grid-settings";
-    @import "neat";
-    @import "base/base";
-    @import "refills/refills";
-    @import 'base/base';
-    @import 'jobs';
+    // @import "normalize-rails";
+    // @import "bourbon";
+    // @import "base/grid-settings";
+    // @import "neat";
+    // @import "base/base";
+    // @import "refills/refills";
+    // @import 'base/base';
+    // @import 'jobs';
+
+    @import 'bootstrap-sprockets';
+    @import 'bootstrap';
+    @import 'custome';

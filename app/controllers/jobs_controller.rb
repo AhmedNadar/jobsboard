@@ -1,12 +1,13 @@
 class JobsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_job_redirect , only: [:show]
 
   def index
     @jobs = Job.paginate(page: params[:page], per_page: 2)
     @title = current_user.jobs
+    @job = Job.new
   end
 
   def show

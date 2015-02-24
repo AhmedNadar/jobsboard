@@ -1,3 +1,27 @@
+%section.jobs
+  %section#main
+    %aside
+      .flex-boxes
+        %a.flex-box{:href => "javascript:void(0)"}
+          %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"}/
+          %h1.flex-title Flex Box Item
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum molestiae fugiat tenetur fugit atque dignissimos, fugiat natus vitae.
+    %article
+      %p
+        Neat is a
+        %strong semantic
+        grid framework built on top of Sass and
+        = succeed "." do
+          %a{:href => "http://bourbon.io"} Bourbon
+        %strong simple
+        enough to get you up and running in minutes, and powerful enough to handle any
+        %strong responsive
+        layout you can dream of.
+
+
+
+
+
 .hero
   .hero-inner
     %a.hero-logo{:href => ""}
@@ -6,3 +30,17 @@
       %h1 Short description of Product
       %p A few reasons why this product is worth using, who it's for and why they need it.
     %button Learn More
+
+/ show all jobs
+- @jobs.each do |job|
+  .refill-centering
+    .cards
+      .card
+        .card-image
+          %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
+        .card-header
+          = job.title
+        .card-copy
+          %p= job.description
+        %p
+          = link_to 'Show', job

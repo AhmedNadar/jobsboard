@@ -1,8 +1,30 @@
 = will_paginate @jobs
-%p#notice
-  = notice
 
-%h1 All Jobs
+.side-image
+  .images-wrapper
+    = render @job
+  .side-image-content
+    .stats
+      %ul
+        %li
+          = @jobs.count
+          %span Jobs
+          %br/
+          %hr/
+
+    %h4 All Jobs
+    %h1 Message with a gradient image
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta q uidem explicabo mollitia inventore quibusdam.
+    %buttonRead more
+
+
+
+
+/ %p#notice
+/   = notice
+
+%h1 Jobs Listing
 .stats
   %ul
     %li
