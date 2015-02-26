@@ -10,7 +10,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sass-rails', '~> 5.0'
 gem 'figaro'
 gem 'high_voltage'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.3.0'
 gem 'haml-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'friendly_id'

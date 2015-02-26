@@ -301,7 +301,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   figaro
-  font-awesome-sass
+  font-awesome-sass (~> 4.3.0)
   friendly_id
   haml-rails
   high_voltage
