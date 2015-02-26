@@ -1,46 +1,26 @@
-%section.jobs
-  %section#main
-    %aside
-      .flex-boxes
-        %a.flex-box{:href => "javascript:void(0)"}
-          %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"}/
-          %h1.flex-title Flex Box Item
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum molestiae fugiat tenetur fugit atque dignissimos, fugiat natus vitae.
-    %article
-      %p
-        Neat is a
-        %strong semantic
-        grid framework built on top of Sass and
-        = succeed "." do
-          %a{:href => "http://bourbon.io"} Bourbon
-        %strong simple
-        enough to get you up and running in minutes, and powerful enough to handle any
-        %strong responsive
-        layout you can dream of.
+.jumbotron
+  %h2 Welcome to Ruby on Rails Job Board
+  %p The first Ruby on Rails job board in Toronto. Check the most recent 5 jobs posted.
+  %p= link_to 'Check all Jobs', jobs_path, class: "btn btn-primary btn-lg"
 
-
-
-
-
-.hero
-  .hero-inner
-    %a.hero-logo{:href => ""}
-      %img{:alt => "Logo Image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png\r\n"}/
-    .hero-copy
-      %h1 Short description of Product
-      %p A few reasons why this product is worth using, who it's for and why they need it.
-    %button Learn More
-
-/ show all jobs
-- @jobs.each do |job|
-  .refill-centering
-    .cards
-      .card
-        .card-image
-          %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
-        .card-header
-          = job.title
-        .card-copy
-          %p= job.description
-        %p
-          = link_to 'Show', job
+.row
+  .col-sm-12
+    - @jobs.each do |job|
+      .panel.panel-default
+        .panel-body
+          %ul.media-list
+            %li.media
+              .media-left
+                = link_to job do
+                  = image_tag "company.png", style: "width: 100px; height: 100px;", alt: "Company", title: "Company"
+              .media-body
+                %h4.media-heading
+                  = link_to job.title.capitalize, job
+                .input-group
+                  .input-group-addon @
+                  %p.form-control.btn-primary.company= job.company
+                %br/
+                %p= job.description
+                %span.label.label-default
+                  Posted
+                  \#{link_to time_ago_in_words(job.created_at), job} ago.
