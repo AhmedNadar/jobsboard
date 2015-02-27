@@ -1,17 +1,11 @@
-// @import "normalize-rails";
-// @import "bourbon";
-// @import "base/grid-settings";
-// @import "neat";
-// @import "base/base";
-// @import "refills/refills";
-// @import 'base/base';
-// @import 'jobs';
-
+// Library
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "color-me-sass";
+
+// custome styles using above library
 @import 'custome';
 @import 'jobs';
-
 @import 'footer';
