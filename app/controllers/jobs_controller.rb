@@ -1,16 +1,21 @@
 class JobsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index]
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_job, only: [:edit, :update, :destroy]
   before_action :set_job_redirect , only: [:show]
 
   def index
-    @jobs = Job.paginate(page: params[:page], per_page: 2)
-    @title = current_user.jobs
-    @job = Job.new
+    @jobs = Job.paginate(page: params[:page], per_page: 5)
+    if signed_in?
+      @title = current_user.jobs
+      @job = Job.new
+    else
+      @titles = Job.all
+    end
   end
 
   def show
+    @jobs = Job.all
   end
 
   def new
@@ -46,8 +51,9 @@ class JobsController < ApplicationController
   private
     def set_job_redirect
       # Use callbacks to share common setup or constraints between actions.
-      @user = current_user
-      @job = @user.jobs.friendly.find(params[:id])
+      # @user = current_user
+      # @job = @user.jobs.friendly.find(params[:id])
+      @job = Job.friendly.find(params[:id])
 
       # If an old id or a numeric id was used to find the record, then
       # the request path will not match the job_path, and we should do

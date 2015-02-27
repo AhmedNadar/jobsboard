@@ -1,50 +1,15 @@
 = will_paginate @jobs
 
-.side-image
-  .images-wrapper
-    = render @job
-  .side-image-content
-    .stats
-      %ul
-        %li
-          = @jobs.count
-          %span Jobs
-          %br/
-          %hr/
-
-    %h4 All Jobs
-    %h1 Message with a gradient image
-    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta q uidem explicabo mollitia inventore quibusdam.
-    %buttonRead more
-
-
-
-
-/ %p#notice
-/   = notice
-
-%h1 Jobs Listing
-.stats
-  %ul
-    %li
-      = @jobs.count
-      %span Jobs
-%br/
-%hr/
-- @jobs.each do |job|
-  .refill-centering
-    .cards
-      .card
-        .card-image
-          %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
-        .card-header
-          = job.title
-        .card-copy
-          %p= job.description
-        %p
-          = link_to 'Show', job
-          |
-          \#{link_to 'Edit', edit_job_path(job)}|
-          \#{link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }}
-
+%section.jobs.panel.panel-default
+  .panel-heading All available Jobs
+  .panel-body
+    %p Check out all valiable jobs in Toronto
+  / Table
+  .jobs-list.list-group
+    - @jobs.each do |job|
+      = link_to job, class: "list-group-item" do
+        %h4.job-title.list-group-item-heading= job.title.capitalize
+        %span.job-company
+          %span.at-sign @
+          = job.company
+        %span.job-date.navbar-right= job.created_at.strftime("%d %B %y")
