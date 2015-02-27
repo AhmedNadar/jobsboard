@@ -4,8 +4,7 @@ Initial App generation was done using my custom :cherries: [Rails Template](http
 
 ### Built with
 
-* :beer: [Bourbon](https://github.com/thoughtbot/bourbon)
-* :necktie: [Neat](https://github.com/thoughtbot/neat)
+* :lipstick: [Bootstrap](https://github.com/twbs/bootstrap-sass)
 * :gem: [HAML Rails](https://github.com/indirect/haml-rails)
 * :memo: [Simple Form](https://github.com/plataformatec/simple_form)
 * :smiley_cat: [Figaro](https://github.com/laserlemon/figaro)
