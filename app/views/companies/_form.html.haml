@@ -1,0 +1,11 @@
+
+=simple_form_for([@job, @job.companies.build], html: { multipart: true, class: 'form-horizontal' }) do |form|
+
+  =form.input :name, label: false, autofocus: true, required: true, placeholder: "Job Title"
+  %small.job-subtitle "Rails Developer"
+
+  =form.input :location, label: false, required: true, placeholder: "Company Name"
+  %small.job-subtitle "My Company"
+
+  =form.input :url, as: :url, label: false, required: true, placeholder: "Job link"
+
