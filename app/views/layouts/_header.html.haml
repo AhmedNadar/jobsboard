@@ -1,54 +1,26 @@
-/ %header.centered-navigation{:role => "banner"}
-/   .centered-navigation-wrapper
-/     %a.mobile-logo{:href => "javascript:void(0)"}
-/       %img{:alt => "Logo image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png"}
-/     %a#js-centered-navigation-mobile-menu.centered-navigation-mobile-menu{:href => root_path} MENU
-/     %nav{:role => "navigation"}
-/       %ul#js-centered-navigation-menu.centered-navigation-menu.show
-/         %li.nav-link
-/           = link_to "Jobs", jobs_path
-/         %li.nav-link
-/           = link_to "New Job", new_job_path
-/         %li.nav-link.logo
-/           = link_to root_path do
-/             -image_tag "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png", alt: "Logo image"
-/         - if user_signed_in?
-/           %li.nav-link
-/             Welcome, #{ current_user.email}
-/           %li.nav-link
-/             = link_to "Sign out", destroy_user_session_path, method: 'delete'
-/         - else
-/           %li.nav-link
-/             = link_to " Sign in", new_user_session_path
-/           %li.nav-link
-/             = link_to "Sign up", new_user_registration_path
-
-
-%nav.navbar.navbar-fixed-top.navbar-inverse
+%header#top.navbar-fixed-top.navbar-inverse{:role => "banner"}
   .container
     .navbar-header
-      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle.collapsed{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand{:href => "/"} Job Board
-    #navbar.collapse.navbar-collapse
+    %nav.collapse.navbar-collapse.bs-navbar-collapse
       %ul.nav.navbar-nav
         %li.nav-link
           = link_to "Jobs", jobs_path
-        %li
-          = link_to "New Job", new_job_path
-
+      %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li.welcome
+          %li.welcome.navbar-text
             Welcome, #{ current_user.email}
           %li
             = link_to "Sign out", destroy_user_session_path, method: 'delete'
+          %li
+            = link_to " Post a job", new_job_path
         - else
           %li
             = link_to " Sign in", new_user_session_path
           %li
             = link_to "Sign up", new_user_registration_path
-    / /.nav-collapse
-  / /.container

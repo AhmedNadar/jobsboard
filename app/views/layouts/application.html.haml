@@ -12,12 +12,20 @@
     = render 'layouts/shim'
   %body.index{"cz-shortcut-listen" => "true"}
     = render 'layouts/header'
-    %secion.container
-      .main-wrapper
+    .container
+      %section.main-wrapper
         = flash_messages if show_layout_flash?
-        %secion.intro
-          %h1 Welcome to Jobboards
-          %span.notice= notice
-          %span.alert= alert
-        = yield
-        = render 'layouts/footer'
+        .row
+          .col-sm-9
+            = yield
+          .col-sm-3
+            %ul.list-group
+              %li.list-group-item
+                %span.badge= Job.all.count
+                Available Jobs
+            %p List some information about the site. Write some data about users, job counts, companies, and so on...
+        .row
+          = render 'layouts/footer'
+
+
+
