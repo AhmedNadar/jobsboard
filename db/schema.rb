@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220205946) do
+ActiveRecord::Schema.define(version: 20150228174942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",                default: "", null: false
+    t.string   "url",                 default: "", null: false
+    t.string   "location",            default: "", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "email"
+  end
+
+  add_index "companies", ["location"], name: "index_companies_on_location", using: :btree
+  add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -32,15 +48,15 @@ ActiveRecord::Schema.define(version: 20150220205946) do
   create_table "jobs", force: :cascade do |t|
     t.string   "title",       default: "", null: false
     t.string   "slug",        default: "", null: false
-    t.string   "company",     default: "", null: false
     t.text     "description", default: "", null: false
     t.string   "url",         default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "user_id"
+    t.integer  "company_id"
+    t.boolean  "premium"
   end
 
-  add_index "jobs", ["company"], name: "index_jobs_on_company", using: :btree
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
   add_index "jobs", ["slug"], name: "index_jobs_on_slug", unique: true, using: :btree
   add_index "jobs", ["title"], name: "index_jobs_on_title", using: :btree
 
