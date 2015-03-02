@@ -1,12 +1,13 @@
 class Job < ActiveRecord::Base
 
-  default_scope -> { order(created_at: :desc) }
+  # default_scope -> { order(created_at: :desc) }
+  scope :most_recent, -> { order('created_at DESC') }
 
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
 
   # validation
-  validates_presence_of :title, :company
+  validates_presence_of :title, :description, :url, :company_id
   validates_uniqueness_of :url
   validates_presence_of :url, url: true
 
@@ -14,5 +15,7 @@ class Job < ActiveRecord::Base
     title_changed?
   end
 
-  belongs_to :user
+  # associations
+  # belongs_to :user
+  belongs_to :company
 end
