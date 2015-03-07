@@ -16,7 +16,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'friendly_id'
 gem 'pygments.rb'
 gem 'redcarpet'
-gem 'paperclip', '~> 4.2'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'normalize-rails', '~> 3.0.0'
 gem 'uglifier'
 # gem 'bourbon', '~> 4.2.1'
@@ -30,6 +30,8 @@ gem 'devise'
 group :development do
   gem 'spring-commands-rspec'
   gem 'meta_request'
+  gem "hirb"
+  gem "interactive_editor"
 end
 
 group :development, :test do
