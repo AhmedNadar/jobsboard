@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228174942) do
+ActiveRecord::Schema.define(version: 20150310024735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,13 @@ ActiveRecord::Schema.define(version: 20150228174942) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "email"
+    t.integer  "user_id"
+    t.string   "slug",                default: "", null: false
   end
 
   add_index "companies", ["location"], name: "index_companies_on_location", using: :btree
   add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
+  add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
