@@ -1,2 +1,18 @@
-%h1 Companies#index
-%p Find me in app/views/companies/index.html.haml
+= will_paginate @companies
+
+%section.jobs.panel.panel-default
+  .panel-heading All available Companies
+  .panel-body
+    %p Check out all valiable Companies in Toronto
+  / Table
+  .jobs-list.list-group
+    - @companies.each do |company|
+      = link_to company, class: "list-group-item" do
+        %h4.job-title.list-group-item-heading= company.name.capitalize
+        %span.job-company
+          %span.at-sign @
+          = company.url
+          = company.email
+          = company.location
+          = company.avatar
+        %span.job-date.navbar-right= company.created_at.strftime("%d %B %y")

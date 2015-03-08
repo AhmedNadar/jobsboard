@@ -1,0 +1,30 @@
+%h2 Company Details
+
+%p#notice= notice
+%p
+  %strong Name:
+  = @company.name
+%p
+  %strong URL:
+  = @company.url
+%p
+  %strong location:
+  = @company.location
+
+%p
+  %strong email:
+  = @company.email
+
+%p
+  %strong image:
+  = image_tag @company.avatar.url(:medium)
+%p
+  %strong URL:
+  = link_to @company.url, @company.url
+%p
+  %strong Jobs:
+  = link_to @company.jobs.all.count, jobs_path
+
+/ = link_to 'Edit', edit_company_path(@company)
+= link_to 'Back', companies_path
+= link_to 'Edit', edit_company_path
