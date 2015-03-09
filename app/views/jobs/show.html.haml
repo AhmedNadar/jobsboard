@@ -6,7 +6,7 @@
   = @job.title
 %p
   %strong Compnay:
-  = @job.company
+  = link_to @job.company.name, @job.company
 %p
   %strong Details:
   = @job.description

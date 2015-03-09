@@ -4,17 +4,17 @@
       .panel-heading
         %h3.panel-title New Job
       .panel-body
-        =simple_form_for(@job, html: {class: 'form-horizontal' }) do |form|
+        =simple_form_for(@job, url: {action: "create"}, html: { multipart: true, class: 'form-horizontal' }) do |form|
           =form.error_notification
-          
+
           =form.input :title, label: false, autofocus: true, required: true, placeholder: "Job Title"
           %small.job-subtitle "Rails Developer"
-        
-          =form.input :company, label: false, required: true, placeholder: "Company Name"
-          %small.job-subtitle "My Company"
-        
+
+          =form.input :premium, as: :boolean,required: true
+          =form.collection_select(:company_id, current_user.companies, :id, :name)
+
           =form.input :description, as: :text, label: false,required: true, placeholder: "Job Details", rows: "10"
-        
+
           =form.input :url, as: :url, label: false, required: true, placeholder: "Job link"
 
           =form.button :submit, class: "button.btn.btn-default"
