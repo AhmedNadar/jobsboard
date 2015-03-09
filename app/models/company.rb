@@ -20,7 +20,7 @@ class Company < ActiveRecord::Base
   has_attached_file :avatar,
     # path: "/images/:id/:filename.:extension",
     path: "#{Rails.root}/assets/images/:filename",
-    url: "#{Rails.root}/images/:filename",
+    url: "#{Rails.root}/assets/images/:filename",
     # "/system/:class/:attachement/:id/:basename_:style.:extension",
     :styles => {
       :thumb    => ['100x100#',  :jpg, :quality => 70],
