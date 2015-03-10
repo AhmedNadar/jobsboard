@@ -11,6 +11,11 @@
       %ul.nav.navbar-nav
         %li.nav-link
           = link_to "Jobs", jobs_path
+        %li.nav-link
+          = link_to "Companies", companies_path
+
+        %li.nav-link
+          = link_to "New Company", new_company_path
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.welcome.navbar-text

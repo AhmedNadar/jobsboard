@@ -23,6 +23,10 @@
               %li.list-group-item
                 %span.badge= Job.all.count
                 Available Jobs
+              %br/
+              %li.list-group-item
+                %span.badge= Company.all.count
+                Companies Jobs
             %p List some information about the site. Write some data about users, job counts, companies, and so on...
         .row
           = render 'layouts/footer'
